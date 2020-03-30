@@ -30,12 +30,13 @@ import UIKit
 class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAnimationDelegate {
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
-        let lineSize = size.width / 9
-        let x = (layer.bounds.size.width - size.width) / 2
+        let lineSize = size.width / 5
+        let x: CGFloat = 0.0
         let y = (layer.bounds.size.height - size.height) / 2
         let duration: CFTimeInterval = 0.9
         let beginTime = CACurrentMediaTime()
-        let beginTimes = [0.5, 0.25, 0, 0.25, 0.5]
+        let beginTimes = [0.5, 0.25, 0, 0.25, 0.5,0.5, 0.25, 0, 0.25, 0.5, 0.5, 0.25, 0, 0.25, 0.5
+                            ,0.5, 0.25, 0, 0.25, 0.5,0.5, 0.25, 0, 0.25, 0.5, 0.5, 0.25, 0, 0.25, 0.5]
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.11, 0.49, 0.38, 0.78)
 
         // Animation
@@ -50,7 +51,7 @@ class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAni
         animation.isRemovedOnCompletion = false
 
         // Draw lines
-        for i in 0 ..< 5 {
+        for i in 0 ..< 30 {
             let line = NVActivityIndicatorShape.line.layerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i),
                                y: y,
